@@ -1,0 +1,20 @@
+{
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "ami_name": "venkyimage",
+            "ami_description": "creating packer imgae for creating tomcatbased application",
+            "access_key": "AKIAXZAUGTYX3Y3XOOUO",
+            "region": "us-east-2",
+            "secret_key": "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",
+            "instance_type": "t2.micro",
+            "source_ami": "gfhdgfhgjhk",
+            "availability_zone": "us-east-2a"
+        }
+    ],
+
+    "provisonres" : {
+        
+
+    }
+}

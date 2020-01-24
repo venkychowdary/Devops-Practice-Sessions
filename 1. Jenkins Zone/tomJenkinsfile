@@ -1,0 +1,10 @@
+node {
+    stage ('Git') {
+        git 'https://github.com/apache/maven.git'
+    }
+
+    stage ('Packaging') {
+        sh 'mvn package'
+    }
+
+}

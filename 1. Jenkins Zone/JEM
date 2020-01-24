@@ -1,0 +1,14 @@
+pipeline {
+    stage {
+        steps {
+            git 
+        }
+    }
+
+    stage {
+        steps {
+            
+        }
+    }
+
+}

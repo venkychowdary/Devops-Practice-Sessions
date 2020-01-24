@@ -1,0 +1,40 @@
+{
+    "variables" : {
+
+        "aws-access_key" : "",
+        "aws-secret_key" : "",
+        "image_region": ""
+    },
+
+    "builders": [
+        {
+            "type": "amazon-ebs",
+            "ami_name": "venky-tomcat",
+            "ami_description": "creating packer image with tomcat installed",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true",
+            "access_key": "{{user `aws-access_key`}}",
+            "secret_key": "{{user `aws-secret_key`}}",
+            "region": "{{user `image-region}}",
+            "instance_type": "t2.micro",
+            "source_ami": "ami-0d5d9d301c853a04a",
+            "associate_public_ip_address": "true",
+            "availability_zone": "us-east-2a",
+            "ebs_optimized": "false",
+            "enable_t2_unlimited": "true",
+            "shutdown_behavior": "terminate",
+            "ssh_username": "ubuntu"
+        }
+    ],
+
+    "provisioners" : {
+        "type" : "shell",
+        "inline" : [
+            "sudo apt-get update",
+            "sudo apt-get install openjdk-8-openjdk -y",
+            "sudo apt-get install git -y",
+            "sudo apt-get install maven",
+            "sudo apt-get install tomcat8 -y"
+        ]
+    }
+}
