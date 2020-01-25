@@ -4,5 +4,4 @@ resource "aws_nat_gateway" "venkynat" {
     tags = {
         Name = "venkynat"
     }
-  
 }
